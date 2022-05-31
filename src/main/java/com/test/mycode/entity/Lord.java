@@ -1,6 +1,11 @@
 package com.test.mycode.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,10 +19,9 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@ToString(exclude = "planetList")
 @Getter
 @Setter
 @Entity

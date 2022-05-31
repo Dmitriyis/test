@@ -28,15 +28,15 @@ public class RestControllerLord {
     }
 
     @PatchMapping("addPlanet")
-    public ResponseEntity<LordDto> addPlanet(@RequestParam String namePlanet, @RequestParam Long lordId) {
+    public ResponseEntity<LordDto> addPlanetToLord(@RequestParam String namePlanet, @RequestParam Long lordId) {
 
-        var planet = servicePlanet.getPlanetName(namePlanet);
+        var planet = servicePlanet.getPlanetByName(namePlanet);
 
-        var lord = serviceLord.getLordId(lordId);
+        var lord = serviceLord.getLordById(lordId);
 
         lord.getPlanetList().add(planet);
 
-        return ResponseEntity.ok().body(LordMapping.lordToLordDtoAddPlanet(serviceLord.addPlanet(lord)));
+        return ResponseEntity.ok().body(LordMapping.lordToLordDtoAddPlanet(serviceLord.addPlanetToLord(lord)));
     }
 
     @GetMapping("allLord")
@@ -48,6 +48,6 @@ public class RestControllerLord {
     @GetMapping("limitLordYoung/{limit}")
     public ResponseEntity<List<LordDto>> getYoungLordLimit(@PathVariable Long limit) {
         return ResponseEntity.ok().body(LordMapping
-                .listLordToListLordDto(serviceLord.showLordYoungLordLimit(limit)));
+                .listLordToListLordDto(serviceLord.showYoungLordLimit(limit)));
     }
 }

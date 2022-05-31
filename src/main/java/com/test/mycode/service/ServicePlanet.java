@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class ServicePlanet {
-
     private final RepositoryPlanet repositoryPlanet;
 
     @Transactional
@@ -19,7 +18,7 @@ public class ServicePlanet {
     }
 
     @Transactional(readOnly = true)
-    public Planet getPlanetName(String name) {
+    public Planet getPlanetByName(String name) {
         var planet = repositoryPlanet.findByName(name)
                 .orElseThrow(() -> new ExceptionPlanet("There is no planet with that name"));
         return planet;

@@ -4,6 +4,7 @@ spring:
     driverClassName: org.h2.Driver
     username: root
     password: root
+    driverClassName: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none

@@ -22,13 +22,12 @@ public class ServiceLord {
     }
 
     @Transactional
-    public Lord addPlanet(Lord lord) {
-        lord.getPlanetList();
+    public Lord addPlanetToLord(Lord lord) {
         return repositoryLord.save(lord);
     }
 
     @Transactional(readOnly = true)
-    public Lord getLordId(Long id) {
+    public Lord getLordById(Long id) {
         return repositoryLord.findById(id)
                 .orElseThrow(() -> new ExceptionLord("There is no lord by such id"));
     }
@@ -39,7 +38,7 @@ public class ServiceLord {
     }
 
     @Transactional
-    public List<Lord> showLordYoungLordLimit(Long limit) {
+    public List<Lord> showYoungLordLimit(Long limit) {
         return repositoryLord.getYoungLordLimit(limit);
     }
 }

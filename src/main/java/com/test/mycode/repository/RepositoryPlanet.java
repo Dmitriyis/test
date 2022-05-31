@@ -8,7 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface RepositoryPlanet extends JpaRepository<Planet, Long> {
-
     Optional<Planet> findByName(String name);
 
 }
